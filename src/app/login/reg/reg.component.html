@@ -1,0 +1,124 @@
+<!-- <img src="https://images.unsplash.com/photo-1633675254053-d96c7668c3b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" alt=""> -->
+<div class="grid grid-cols-1 md:grid-cols-2">
+
+    <div class="p-5 m-20">
+        <img src="https://p1.pxfuel.com/preview/605/920/934/facebook-social-media-communication-network.jpg" alt="">
+    </div>
+
+    <form action="" [formGroup]="regForm">
+
+        <div class="bg-white shadow-lg rounded pt-20 m-20">
+            <p class="text-center font-bold text-4xl pb-20">Create A New Account</p>
+            <!---- full Name --->
+            <ng-container formGroupName="fullName">
+                <div class="grid grid-cols-2 p-2">
+                    <div class="text-center pb-3">
+                        <input type="text" class="border border-1 border-gray-200 h-9 md:w-96 sm:w-72 xs:w-40  p-2"
+                            formControlName="fname" placeholder="First Name" />
+                    </div>
+
+                    <div class="text-center pb-3">
+                        <input type="text" class="border border-1 border-gray-200 h-9 md:w-96 sm:w-72 xs:w-40  p-2"
+                            formControlName="lname" placeholder="Last Name" />
+                    </div>
+                    <!-- name validation  -->
+                    <p *ngIf="vfname && vfname.touched" style="color:red;" class="px-10">
+                        <small *ngIf="vfname.errors?.['required']"> * First Name is required</small>
+                        <small *ngIf="vfname.errors?.['pattern']"> First Name Should Contain Letters Only And <br> Space
+                            is Not allowed. </small>
+                    </p>
+                    <p *ngIf="vlname && vlname.touched" style="color:red;" class="px-10">
+                        <small *ngIf="vlname.errors?.['required']"> * Last Name is required</small>
+                        <small *ngIf="vlname.errors?.['pattern']"> Last Name Should Contain Letters Only And <br> Space
+                            is Not allowed. </small>
+                    </p>
+                </div>
+            </ng-container>
+
+            <!-- email  -->
+            <div class="text-center pb-3">
+                <input type="text"
+                    class="input-container border border-1 border-gray-200 h-9 md:w-96 sm:w-72 xs:w-40 p-2"
+                    formControlName="email" placeholder="Email" />
+                <!------------------ Email validation ---------------->
+                <p *ngIf="vemail && vemail.touched " style="color: red;">
+                    <small *ngIf="vemail.errors?.['required']">
+                        *Email is required.
+                    </small>
+                    <small *ngIf="vemail.errors?.['email']">
+                        *Email is not valid.
+                    </small>
+                </p>
+            </div>
+
+            <!-- password  -->
+            <div class="text-center pb-3">
+                <input type="password"
+                    class="input-container border border-1 border-gray-200 h-9 md:w-96 sm:w-72 xs:w-40  p-2"
+                    formControlName="pass" placeholder="password" />
+                <!------------------ Password validation ---------------->
+                <p *ngIf="vpass && vpass.touched " style="color: red;">
+                    <small *ngIf="vpass.errors?.['required']">
+                        *Password is required.
+                    </small>
+                    <!-- <small *ngIf="vpass.errors?.['pattern']">
+                        *Password is not valid.
+                    </small> -->
+                </p>
+            </div>
+
+            <!-- DOB  -->
+            <div class="text-center pb-3">
+                <label for="" class="text-lg text-center">BirthDay :</label><br>
+
+                <input type="date"
+                    class="input-container border border-1 border-gray-200 h-9 md:w-96 sm:w-72 xs:w-40  p-2"
+                    formControlName="pass" placeholder="password" />
+                <!------------------ DOB validation ---------------->
+                <p *ngIf="vdob && vdob.touched" style="color: red;">
+                    <small *ngIf="vdob.errors?.['required']">
+                        *Date Of Birth is required.
+                    </small>
+                    <!-- <small *ngIf="vdob.errors?.['pattern']">
+                        *Password is not valid.
+                    </small> -->
+                </p>
+            </div>
+
+            <!-- Gender -->
+            <div class="flex gap-9 text-gray-400 text-lg justify-center">
+                <label for="" class="text-black text-lg text-center">Gender :</label><br>
+
+                <div class=" ">
+                    <input type="radio" name="gender" value="Female" id="r1" class="mx-3">
+                    <label for="r1" class="">Female</label>
+                </div>
+                <div>
+                    <input type="radio" name="gender" value="Male" id="r2" class="mx-3">
+                    <label for="r2">Male</label>
+                </div>
+                <div>
+                    <input type="radio" name="gender" value="Other" id="r3" class="mx-3">
+                    <label for="r3">Other</label>
+                </div>
+                <!------------------ Gender validation ---------------->
+                <p *ngIf="vgender && vgender.touched " style="color: red;">
+                    <small *ngIf="vgender.errors?.['required']">
+                        *Gender is required.
+                    </small>
+                    <!-- <small *ngIf="vgender.errors?.['pattern']">
+                        *Password is not valid.
+                    </small> -->
+                </p>
+            </div>
+                
+            <div class="py-10 text-center">
+                <button class="bg-green-600 text-center h-9  font-bold text-white p-2 rounded-sm hover:bg-green-700"
+                    routerLink="/login" >Create New Account</button>
+            </div>
+        </div>
+    </form>
+
+
+
+</div>

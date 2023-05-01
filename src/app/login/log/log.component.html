@@ -1,0 +1,53 @@
+
+  <div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 p-48">
+      <div >
+        <p class="font-bold text-blue-500 text-7xl">facebook</p>
+        <p class="font-bold text-2xl">Connect with friends and the <br> world around you on Facebook.</p>
+      </div>
+      <div >
+        <form action="" [formGroup]="loginForm">
+        <div class="bg-white shadow-lg rounded">
+          <p class="text-center font-bold text-4xl pb-20">Sign Up</p>
+          <div class="text-center pb-3">
+            <input type="text" class="input-container border border-1 border-gray-200 h-9 md:w-96 sm:w-72 xs:w-40 p-2"  
+            formControlName="email" placeholder="Email"/>
+            <!------------------ Email validation ---------------->
+            <p *ngIf="vemail && vemail.touched " style="color: red;">
+              <small *ngIf="vemail.errors?.['required']">
+                  *Email is required.
+              </small>
+              <small *ngIf="vemail.errors?.['email']">
+                  *Email is not valid.
+              </small>
+
+          </p>
+          </div>
+          <div class="text-center pb-3">
+            <input type="password" class="input-container border border-1 border-gray-200 h-9 md:w-96 sm:w-72 xs:w-40  p-2"
+              formControlName="pass" placeholder="password"/>
+              <!------------------ Password validation ---------------->
+            <p *ngIf="vpass && vpass.touched " style="color: red;">
+              <small *ngIf="vpass.errors?.['required']">
+                  *Password is required.
+              </small>
+              <!-- <small *ngIf="vpass.errors?.['pass']">
+                  *Password is not valid.
+              </small> -->
+            </p>
+          </div>
+          
+          <div class="pb-3 text-center mt-2">
+            <button (click)="onLogin()" class="input-container bg-blue-500 text-center h-9 md:w-96 sm:w-72 xs:w-40 font-bold text-white p-2 rounded-sm hover:bg-blue-400">Log in</button>
+          </div>
+          <hr class="w-full my-10">
+          <div class="pb-5 text-center mt-2">
+            <button class="input-container bg-green-600 text-center h-9  font-bold text-white p-2 rounded-sm hover:bg-green-500" routerLink="./Register">Create New Account</button>
+          </div>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
